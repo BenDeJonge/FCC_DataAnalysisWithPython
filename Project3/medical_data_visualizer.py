@@ -6,7 +6,7 @@ import numpy as np
 # ______________________________________________________________________________
 
 # Import data
-df = pd.read_csv('medical_examination.csv')
+df = pd.read_csv('Project3/medical_examination.csv')
 # Add 'overweight' column
 body_mass_index = df['weight'] / (df['height']/100) ** 2
 df['overweight'] = np.where(body_mass_index > 25, 1, 0)
@@ -70,7 +70,7 @@ def draw_cat_plot(df):
     # Draw the catplot with 'sns.catplot()'
 
     # Do not modify the next two lines
-    fig.savefig('catplot.png')
+    fig.savefig('catplot.png', bbox_inches='tight', transparent=True)
     return fig
 
 # ______________________________________________________________________________
@@ -109,9 +109,9 @@ def draw_heat_map(df):
                 annot=True,
                 fmt='.1f')
     # Do not modify the next two lines
-    fig.savefig('heatmap.png')
+    fig.savefig('heatmap.png', bbox_inches='tight', transparent=True)
     return fig
 
 
 draw_cat_plot(df)
-# draw_heat_map(df)
+draw_heat_map(df)
