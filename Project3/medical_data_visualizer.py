@@ -70,7 +70,7 @@ def draw_cat_plot(df):
     # Draw the catplot with 'sns.catplot()'
 
     # Do not modify the next two lines
-    fig.savefig('catplot.png', bbox_inches='tight', transparent=True)
+    fig.savefig('Project3/catplot.png', bbox_inches='tight', transparent=True)
     return fig
 
 # ______________________________________________________________________________
@@ -109,7 +109,7 @@ def draw_heat_map(df):
                 annot=True,
                 fmt='.1f')
     # Do not modify the next two lines
-    fig.savefig('heatmap.png', bbox_inches='tight', transparent=True)
+    fig.savefig('Project3/heatmap.png', bbox_inches='tight', transparent=True)
     return fig
 
 
