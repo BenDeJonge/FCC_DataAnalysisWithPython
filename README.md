@@ -1,6 +1,6 @@
 # FCC_DataAnalysisWithPython
 My solutions for the "Data Analysis with Python" course on FreeCodeCamp.org.
-The course covers the fundamentals of data science using Python and covers basic data sources like CSV and SQL, and the key libraries NumPy, Pandas, MatPlotLib and Seaborn.
+The course covers the fundamentals of data science using Python, the basic data sources like CSV and SQL, and the key libraries NumPy, Pandas, MatPlotLib and Seaborn.
 Visit the freecodecamp website for more info: https://www.freecodecamp.org/learn/data-analysis-with-python/
 
 The following information about the projects is copied from the above website.
@@ -17,3 +17,6 @@ The rows in the dataset represent patients and the columns represent information
 
 ## Project 4 : Page View Time Series Visualizer
 For this project you will visualize time series data using a line chart, bar chart, and box plots. You will use Pandas, Matplotlib, and Seaborn to visualize a dataset containing the number of page views each day on the freeCodeCamp.org forum from 2016-05-09 to 2019-12-03. The data visualizations will help you understand the patterns in visits and identify yearly and monthly growth.
+
+## Project 5 : Sea Level Predictor
+You will analyze a dataset of the global average sea level change since 1880. You will use the data to predict the sea level change through year 2050.
