@@ -1,6 +1,6 @@
 # FCC_DataAnalysisWithPython
 My solutions for the "Data Analysis with Python" course on FreeCodeCamp.org.
-The course covers the fundamentals of data science using Python and covers basic data sources like CSV and SQL, and the key libraries NumPy, Pandas, MatPlotLib and Seaborn.
+The course covers the fundamentals of data science using Python, the basic data sources like CSV and SQL, and the key libraries NumPy, Pandas, MatPlotLib and Seaborn.
 Visit the freecodecamp website for more info: https://www.freecodecamp.org/learn/data-analysis-with-python/
 
 The following information about the projects is copied from the above website.
