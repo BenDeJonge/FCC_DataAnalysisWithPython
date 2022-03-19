@@ -3,18 +3,18 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import calendar
-from pandas.plotting import register_matplotlib_converters
-register_matplotlib_converters()
+# from pandas.plotting import register_matplotlib_converters
+# register_matplotlib_converters()
 
 #______________________________________________________________________________
 
 # Import data (Make sure to parse dates. Consider setting index column to 'date'.)
 df = pd.read_csv(filepath_or_buffer='Project4/fcc-forum-pageviews.csv',
-                 index_col=0)
+                 index_col=0, header=0, names=['date','page views'])
 
 # Clean data. Remove datapoints outside of the 2.5% and 97.5% percentiles.
 df = df[
-        df.value.between(df.value.quantile(0.025), df.value.quantile(0.975))
+        df['page views'].between(df['page views'].quantile(0.025), df['page views'].quantile(0.975))
         ]
 # Convert the index to datetime for date lookup. Infer format for quick processing.
 df.index = pd.to_datetime(df.index, infer_datetime_format='%YYYY-&MM-%DD')
@@ -41,7 +41,6 @@ def draw_line_plot(df):
 
 #______________________________________________________________________________
 
-
 def draw_bar_plot(df):
     # Object-oriented Matplotlib interface, separating the figure from the axis.
     fig, ax = plt.subplots()
@@ -64,7 +63,7 @@ def draw_bar_plot(df):
             bar_color = (1 - (month/11), 0, month/11)
             bar_pos = (x_tick - (6 - month) * bar_width) + bar_width/2
             # Plotting a bar.
-            ax.bar(bar_pos, np.mean(df_bar.value),
+            ax.bar(bar_pos, np.mean(df_bar['page views']),
                    width=bar_width,
                    color=bar_color,
                    edgecolor='black',
@@ -85,23 +84,29 @@ def draw_bar_plot(df):
 
 #______________________________________________________________________________
 
-
 def draw_box_plot(df):
     # Prepare data for box plots (this part is done!)
     df_box = df.copy()
     df_box.reset_index(inplace=True)
     df_box['year'] = [d.year for d in df_box.date]
     df_box['month'] = [d.strftime('%b') for d in df_box.date]
-
-    # Draw box plots (using Seaborn)
-
-    fig = None
+    # Object-oriented Matplotlib interface, separating the figure from the axis.
+    fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(18,5), sharey=True)
+    # Plotting distribution of views per year.
+    sns.boxplot(x='year', y='page views', data=df_box, ax=axes[0])
+    axes[0].set_title('Year-wise boxplot (Trend)')
+    axes[0].set_xlabel('Year')
+    axes[0].set_ylabel('Page views')
+    # Plotting distribution of views per month.
+    sns.boxplot(x='month', y='page views', data=df_box, ax=axes[1])
+    axes[1].set_title('Month-wise boxplot (Seasonality)')
+    axes[1].set_xlabel('Month')
+    axes[1].set_ylabel('Page views')
     # Save image and return fig (don't change this part)
-    # fig.savefig('Project4/box_plot.png', bbox_inches='tight', transparent=True)
+    fig.savefig('Project4/box_plot.png', bbox_inches='tight', transparent=True, dpi=300)
     return fig
 
 #______________________________________________________________________________
-
 
 draw_line_plot(df)
 draw_bar_plot(df)
