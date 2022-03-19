@@ -46,7 +46,7 @@ def draw_plot():
     ax.set_ylabel('Sea level [inches]')
     ax.legend(framealpha=0, loc='upper left')
     # Saving plot and return data for testing.
-    fig.savefig('sea_level_plot.png',
+    fig.savefig('Project5/sea_level_plot.png',
                 dpi=300, bbox_inches='tight', transparent=True)
     return fig
 
